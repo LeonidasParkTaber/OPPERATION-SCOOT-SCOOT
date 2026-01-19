@@ -1,0 +1,62 @@
+LAST UPDATE 1/18/26
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+## IMPUT MOTOR SPECKS
+COTS_motor_torque = 12 # In Nm please
+COTS_rpm = 4000 # in RMP
+
+## Calcs to Test Motors
+
+motor_gear_ratio = 1/2
+
+## Defining Variables 
+r = 70 # mm
+w = 130 # lbs
+slope_angle = 13 # deg
+
+## Converting Factors
+mm_to_m = 1e-3
+deg_to_rad = np.pi/180
+lbs_to_N = 4.448
+meters_to_miles = 1/1609
+min_to_hour = 60
+
+## convert to starndard metric
+
+r = r*mm_to_m  # m
+w = w*lbs_to_N # N
+slope_angle_rad= slope_angle*deg_to_rad  # rad
+
+## Calculations for motor torque
+
+normal_force = np.cos(slope_angle_rad)*w
+
+friction_force = np.sin(slope_angle_rad)*w
+
+motor_torque = friction_force*r*motor_gear_ratio
+
+## Calcuations for scooter speed
+
+
+scooter_speed = COTS_rpm * 2*np.pi*r * meters_to_miles * min_to_hour * motor_gear_ratio
+
+## RESULTS
+print("-"*50)
+
+print("On", slope_angle, "degree inclide, required motor torque is", np.round(motor_torque, 4), "Nm")
+print("This motor provides", COTS_motor_torque, "Nm")
+
+print("-"*50)
+
+print("Target Speed: 15mph")
+print("Scootor speed (in a vaccume, so much slower):", np.round(scooter_speed, 4), "mph")
+
+print("-"*50)
+
+
+
+
+
