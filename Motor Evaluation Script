@@ -1,5 +1,4 @@
-LAST UPDATE 1/18/26
-
+LAST UPDATE 1/18/26 11:17 PM LEO
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,13 +7,11 @@ import matplotlib.pyplot as plt
 COTS_motor_torque = 12 # In Nm please
 COTS_rpm = 4000 # in RMP
 
-## Calcs to Test Motors
-
 motor_gear_ratio = 1/2
 
 ## Defining Variables 
-r = 70 # mm
-w = 130 # lbs
+r = 127 # mm
+w = 145 # lbs
 slope_angle = 13 # deg
 
 ## Converting Factors
